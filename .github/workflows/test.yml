@@ -1,0 +1,44 @@
+name: Test Markowitz System
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run Markowitz system
+        run: python main.py
+
+      - name: Verify outputs
+        run: |
+          test -f data/raw/historical_prices.csv
+          test -f data/processed/daily_returns.csv
+          test -f data/processed/annualised_mean_returns.csv
+          test -f data/processed/annualised_covariance.csv
+          test -f outputs/reports/optimal_weights.csv
+          test -f outputs/reports/portfolio_metrics.json
+          test -f outputs/figures/efficient_frontier.png
+
+      - name: Upload test outputs
+        uses: actions/upload-artifact@v4
+        with:
+          name: markowitz-test-output
+          path: |
+            data/raw/historical_prices.csv
+            data/processed/*.csv
+            outputs/reports/*
+            outputs/figures/*
