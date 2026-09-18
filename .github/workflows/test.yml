@@ -29,6 +29,7 @@ jobs:
           test -f data/processed/daily_returns.csv
           test -f data/processed/annualised_mean_returns.csv
           test -f data/processed/annualised_covariance.csv
+          test -f outputs/reports/data_quality_report.json
           test -f outputs/reports/optimal_weights.csv
           test -f outputs/reports/portfolio_metrics.json
           test -f outputs/figures/efficient_frontier.png
