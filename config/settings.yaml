@@ -1,0 +1,14 @@
+portfolio:
+  tickers:
+    - "OMU.JO"
+    - "NPK.JO"
+    - "SBK.JO"
+    - "TTO.JO"
+    - "FSR.JO"
+  start_date: "2020-01-01"
+  end_date: "2026-09-18"
+
+parameters:
+  risk_free_rate: 0.075
+  trading_days: 252
+  num_random_portfolios: 10000
