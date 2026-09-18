@@ -12,3 +12,7 @@ parameters:
   risk_free_rate: 0.075
   trading_days: 252
   num_random_portfolios: 10000
+
+data_quality:
+  suspicious_daily_return_abs: 1.0
+  min_observations: 252
