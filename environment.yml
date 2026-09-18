@@ -1,0 +1,14 @@
+name: markowitz-optimization
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - numpy
+  - pandas
+  - scipy
+  - pyyaml
+  - matplotlib
+  - jupyter
+  - pip
+  - pip:
+      - yfinance
