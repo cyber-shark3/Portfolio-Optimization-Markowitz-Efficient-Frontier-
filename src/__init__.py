@@ -1,0 +1,1 @@
+"""Markowitz portfolio optimisation package."""
