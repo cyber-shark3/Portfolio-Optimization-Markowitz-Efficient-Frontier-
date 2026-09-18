@@ -23,7 +23,10 @@ jobs:
       - name: Run Markowitz system
         run: python main.py
 
-      - name: Stress-test optimiser\n        run: python stress_test.py\n\n      - name: Verify outputs
+      - name: Stress-test optimiser
+        run: python stress_test.py
+
+      - name: Verify outputs
         run: |
           test -f data/raw/historical_prices.csv
           test -f data/processed/daily_returns.csv
@@ -31,7 +34,9 @@ jobs:
           test -f data/processed/annualised_covariance.csv
           test -f outputs/reports/data_quality_report.json
           test -f outputs/reports/optimal_weights.csv
-          test -f outputs/reports/portfolio_metrics.json\n          test -f outputs/reports/stress_test_report.json\n          test -f outputs/reports/stress_test_results.csv
+          test -f outputs/reports/portfolio_metrics.json
+          test -f outputs/reports/stress_test_report.json
+          test -f outputs/reports/stress_test_results.csv
           test -f outputs/figures/efficient_frontier.png
 
       - name: Upload test outputs
